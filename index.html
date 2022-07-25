@@ -35,10 +35,10 @@
                             <div class="my-carousel-images">
                                 
                                 <div class="my-carousel-item active">
-                                    <img class="img-fluid" v-bind:src="images[c_slide].url" alt="imsges[c_slide]title">
+                                    <img class="img-fluid" v-bind:src="images[slide].url" alt="imsges[slide]title">
                                     <div class="item-description px-3">
-                                        <h2>{{images[c_slide].title}}</h2>
-                                        <p>{{images[c_slide].description}}  </p>
+                                        <h2>{{images[slide].title}}</h2>
+                                        <p>{{images[slide].description}}  </p>
                                     </div>
                                 </div>
     
@@ -46,7 +46,7 @@
                             </div>
                             <div class="my-thumbnails position-relative">
     
-                                <div v-for="image in images" class="my-thumbnail">
+                                <div v-for="(image, index) in images" v-bind:class="getTumbActive(index)" class="my-thumbnail" >
                                     <img class="img-fluid" v-bind:src="image.url" v-bind:alt=" 'Thumbnail of ' + image.title + '  picture'">
                                 </div> 
      
@@ -56,7 +56,7 @@
                                 </div>
                                 <!-- immagini interne -->
                                 <!-- next -->
-                                <div class="my-next position-absolute" @click="next">
+                                <div class="my-next position-absolute"@click="next">
                                     <span class="my-next-hook"></span>
                                 </div>
                             </div>

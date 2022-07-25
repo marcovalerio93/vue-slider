@@ -4,7 +4,7 @@ const app = new Vue(
     {
         el: '#app',
         data: { 
-            c_slide: 0,
+            slide: 0,
 
             images: [ 
                 {
@@ -38,25 +38,34 @@ const app = new Vue(
             ]
         },
 
-    
+     
         methods: {
+        
             next() {
-                if (this.c_slide == (this.images.length - 1)){
-                    this.c_slide = 0;
+                if (this.slide == (this.images.length - 1)) {
+                    this.slide = 0;
                 } else {
-                    this.c_slide++;
+                    this.slide++;
                 }
             },
             prev() {
-                if (this.c_slide == 0){
-                    this.c_slide = this.images.lenght -1;
+                if (this.slide == 0) {
+                    this.slide = this.images.length -1;
                 } else {
-                this.c_slide--;
+                this.slide--;
+                }
+            },
+            getTumbActive (on) {
+                if (on == this.slide) {
+                    return 'active';
+                } else {
+                    return '';
                 }
             }
         }
+       
 
     }
-);
+)
 
 
